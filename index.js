@@ -25,6 +25,11 @@ for(let msg of messages) {
     date.date = date_parsed[0];
     date.time = date_parsed[1];
 
+    const date_parts = date.date.split("-") // WhatsApp: [7/19/16, 01:32:35]; months and days no 0s
+    date.year = date_parts[0]
+    date.month = date_parts[1].replace(/^0+/, '')
+    date.day = date_parts[2].replace(/^0+/, '')
+
     const edited_date_parsed = msg['edited'].split('T');
     edited_date.date = edited_date_parsed[0];
     edited_date.time = edited_date_parsed[1];
@@ -34,14 +39,14 @@ for(let msg of messages) {
     }
 
     if(media_type == "voice_message") {
-        result += `${date.date} ${date.time}, voice, ${duration}, ${users[from_id]}, NA, NA\n`;
-        // result += `[${date.date}, ${date.time}] ${users[from_id]}:\n`;
+        // result += `${date.date} ${date.time}, voice, ${duration}, ${users[from_id]}, NA, NA\n`;
+        result += `[${date.month}/${date.day}/${date.year}, ${date.time}] ${users[from_id]}:\n`;
         continue;
     }
 
     if(text !== "" && typeof(text) == "string") {
-        result += `${date.date} ${date.time}, text, NA, ${users[from_id]}, ${(edited ? `${edited_date.date} ${edited_date.time}` : "NA")}, ${text.replace(/\n/gi, "\\n")}\n`;
-        // result += `[${date.date}, ${date.time}] ${users[from_id]}: ${text.replace(/\n/gi, "\\n")}\n`;
+        // result += `${date.date} ${date.time}, text, NA, ${users[from_id]}, ${(edited ? `${edited_date.date} ${edited_date.time}` : "NA")}, ${text.replace(/\n/gi, "\\n")}\n`;
+        result += `[${date.month}/${date.day}/${date.year}, ${date.time}] ${users[from_id]}: ${text.replace(/\n/gi, "\\n")}\n`;
     }
 }
 
