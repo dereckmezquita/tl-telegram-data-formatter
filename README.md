@@ -1,8 +1,9 @@
-# Telegram-data-formatter
+# telegram-data-formatter
 
-NodeJS application for converting Telegram JSON chat exports to WhatsApp.txt or .csv style outputs.
+This is a nodeJS application for converting exported Telegram JSON chat to a WhatsApp.txt or .csv style outputs.
 
 ## Usage
+
 * Download and run `npm install --y`
 
 * Set your data in the data folder, change variable names. Make sure it's a clean conversation no extra information.
