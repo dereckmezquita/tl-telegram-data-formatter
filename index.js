@@ -22,8 +22,8 @@ const ymdt = new Date().YYYYMMDDHHMMSS();
 // console.log(ymdt);
 
 const users = {
-    5210555339: "user1", // set unique ID number and name
-    4656883065: "user2"
+    5210555339: "Liza", // set unique ID number and name
+    4656883065: "Dereck"
 }
 
 const messages = JSON.parse(fs.readFileSync('./data/result.json').toString())['messages'];
@@ -43,8 +43,8 @@ for(let msg of messages) {
     date.date = date_parsed[0];
     date.time = date_parsed[1];
 
-    const date_parts = date.date.split("-") // WhatsApp: [7/19/16, 01:32:35]; months and days no 0s
-    date.year = date_parts[0]
+    const date_parts = date.date.split("-") // WhatsApp: [10/6/20, 11:45:04]; months and days no 0s, last two of year
+    date.year = date_parts[0].slice(-2)
     date.month = date_parts[1].replace(/^0+/, '')
     date.day = date_parts[2].replace(/^0+/, '')
 
@@ -75,4 +75,6 @@ fs.writeFileSync(`./outputs/${ymdt}_output.txt`, result);
 
 // [YYYY-MM-DD HH:MM:SS] SENDER: MESSAGE
 // [2020-04-07 14:14:37] user:   This is a first message
+
+
 
