@@ -5,7 +5,7 @@ This is a nodeJS application for converting exported Telegram JSON chat to a Wha
 ## Usage
 
 ```bash
-node main.js --input './data/results.json' --output './whatsapp-formated.txt' --users './users.json'
+node main.js --input './data/result.json' --output './whatsapp-formated.txt' --users './users.json'
 ```
 
 * Download and run `npm install --y`
