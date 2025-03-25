@@ -7,7 +7,7 @@ const whatsapp_data = convert_telegram_to_whatsapp(input_path, users);
 console.log(whatsapp_data);
 // fs.writeFileSync(output_path, whatsapp_data);
 
-function convert_telegram_to_whatsapp(input_path, users_map) {
+export function convert_telegram_to_whatsapp(input_path, users_map) {
     const messages = JSON.parse(fs.readFileSync(input_path).toString())[
         'messages'
     ];
