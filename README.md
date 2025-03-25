@@ -4,6 +4,10 @@ This is a nodeJS application for converting exported Telegram JSON chat to a Wha
 
 ## Usage
 
+```bash
+node main.js --input './data/results.json' --output './whatsapp-formated.txt' --users './users.json'
+```
+
 * Download and run `npm install --y`
 
 * Set your data in the data folder, change variable names. Make sure it's a clean conversation no extra information.

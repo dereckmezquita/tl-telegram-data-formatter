@@ -1,17 +1,4 @@
-import fs from 'fs';
-
-const input_path = './data/result.json';
-const output_path = `./outputs/${generate_timestamp()}_output.txt`;
-
-const whatsapp_data = convert_telegram_to_whatsapp(input_path, users);
-console.log(whatsapp_data);
-// fs.writeFileSync(output_path, whatsapp_data);
-
-export function convert_telegram_to_whatsapp(input_path, users_map) {
-    const messages = JSON.parse(fs.readFileSync(input_path).toString())[
-        'messages'
-    ];
-
+function convert_telegram_to_whatsapp(messages, users_map) {
     let result = '';
 
     for (let msg of messages) {
@@ -74,4 +61,9 @@ function parse_tg_datetime(tg_dt) {
     date.day = date_parts[2].replace(/^0+/, '');
 
     return date;
+}
+
+module.exports = {
+    convert_telegram_to_whatsapp,
+    generate_timestamp
 }
