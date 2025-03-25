@@ -1,3 +1,9 @@
+# project
+node_modules/
+
+deprecated/
+*ignore
+
 /data
 !/data/.gitkeep
 *.csv
