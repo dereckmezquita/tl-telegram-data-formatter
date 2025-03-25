@@ -1,10 +1,4 @@
-import { readFileSync } from 'fs';
-
-// if you want to change the name of a user based on the ID
-const users = {
-    5210555339: 'Liza', // set unique ID number and name
-    4656883065: 'Dereck'
-};
+import fs from 'fs';
 
 const input_path = './data/result.json';
 const output_path = `./outputs/${generate_timestamp()}_output.txt`;
@@ -14,7 +8,7 @@ console.log(whatsapp_data);
 // fs.writeFileSync(output_path, whatsapp_data);
 
 function convert_telegram_to_whatsapp(input_path, users_map) {
-    const messages = JSON.parse(readFileSync(input_path).toString())[
+    const messages = JSON.parse(fs.readFileSync(input_path).toString())[
         'messages'
     ];
 
